@@ -18,6 +18,7 @@ public class BaseInfo {
     public static String baseUrl = "http://localhost:9527/";
     public static WebDriver driver;
 
+    //项目id输入
     public static WebElement getProjectIdInput() {
         if (driver == null) {
             return null;
@@ -25,6 +26,7 @@ public class BaseInfo {
         return driver.findElement(By.name("projectIdInput"));
     }
 
+    //项目查询按钮
     public static WebElement getSearchButton() {
         if (driver == null) {
             return null;
@@ -32,6 +34,7 @@ public class BaseInfo {
         return driver.findElement(By.name("searchButton"));
     }
 
+    //获取进入项目按钮
     public static WebElement getEntryButton() {
         if (driver == null) {
             return null;
@@ -73,8 +76,10 @@ public class BaseInfo {
             //等待查询结果
             Thread.sleep(5000);
             WebElement entryButton = getEntryButton();
+            //进入选择的项目
             entryButton.click();
             Thread.sleep(3000);
+            //进入选择的模块
             WebElement item = driver.findElement(By.name(itemName));
             item.click();
             Thread.sleep(2000);

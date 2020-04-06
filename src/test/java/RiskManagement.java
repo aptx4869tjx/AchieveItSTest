@@ -4,6 +4,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 
 import java.util.HashMap;
 import java.util.List;
@@ -116,6 +117,14 @@ public class RiskManagement extends BaseInfo {
     }
 
 
+    /**
+     * 按照风险类型查询风险
+     *
+     * @param
+     * @return void
+     * @author 田家旭
+     * @date 2020/4/6 2:25 下午
+     **/
     @Order(2)
     @Test
     void searchRiskTest_2() throws InterruptedException {
@@ -175,10 +184,11 @@ public class RiskManagement extends BaseInfo {
 
     /**
      * 按照风险状态进行查询
-     * @author 田家旭
-     * @date 2020/4/6 11:20 上午
+     *
      * @param
      * @return void
+     * @author 田家旭
+     * @date 2020/4/6 11:20 上午
      **/
     @Order(4)
     @Test
@@ -188,6 +198,7 @@ public class RiskManagement extends BaseInfo {
         int statusIndex = 1;
         String[] riskStatus = {"NEW", "OPENED", "PROCESSED", "SOLVED", "CLOSED"};
         getRiskStatusSearch().click();
+        Thread.sleep(1000);
         getRiskStatusOptionSearch().get(statusIndex).click();
         getRiskSearchButton().click();
         //等待查询结果
@@ -205,10 +216,11 @@ public class RiskManagement extends BaseInfo {
 
     /**
      * 查询不存在的风险
-     * @author 田家旭
-     * @date 2020/4/6 11:20 上午
+     *
      * @param
      * @return void
+     * @author 田家旭
+     * @date 2020/4/6 11:20 上午
      **/
     @Order(5)
     @Test
@@ -224,16 +236,10 @@ public class RiskManagement extends BaseInfo {
         //等待查询结果
         Thread.sleep(6000);
         WebElement emptyText = driver.findElement(By.className("el-table__empty-text"));
-        Assertions.assertEquals("暂无数据",emptyText.getText());
+        Assertions.assertEquals("暂无数据", emptyText.getText());
     }
 
 
-    private static WebElement getRiskManagementItem() {
-        if (driver == null) {
-            return null;
-        }
-        return driver.findElement(By.name("risk"));
-    }
 
     //新建风险按钮
     private WebElement getOpenNewRiskButton() {
@@ -371,6 +377,7 @@ public class RiskManagement extends BaseInfo {
         return driver.findElement(By.name("riskStatusSearch"));
     }
 
+    //风险状态查询输入框的选项
     private List<WebElement> getRiskStatusOptionSearch() {
         if (driver == null) {
             return null;

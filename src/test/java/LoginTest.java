@@ -17,8 +17,6 @@ import java.util.concurrent.TimeUnit;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class LoginTest {
     private static WebDriver driver;
-    private static Map<String, Object> vars;
-    private static JavascriptExecutor js;
     private static boolean flag = false;//是否按顺序全部执行
 
     @BeforeAll
@@ -30,8 +28,6 @@ public class LoginTest {
         //Firefox
 //        System.setProperty("webdriver.gecko.driver",BaseInfo.firefoxDriverPath);
 //        driver = new FirefoxDriver();
-        js = (JavascriptExecutor) driver;
-        vars = new HashMap<String, Object>();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get(BaseInfo.baseUrl);
