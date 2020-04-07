@@ -189,11 +189,7 @@ public class BugManagement extends BaseInfo {
         editBugTitleInput.sendKeys(editBugTitle);
         Thread.sleep(1000);
         getEditBugSubmitButton().click();
-        WebElement message = driver.findElement(By.className("el-message__content"));
-        while (message.getText() == null || message.getText().equals("")) {
-            Thread.sleep(500);
-        }
-        Assertions.assertEquals("缺陷更新成功", message.getText());
+        validateMessageBox("缺陷更新成功");
     }
 
     /**
@@ -257,11 +253,7 @@ public class BugManagement extends BaseInfo {
         Thread.sleep(1000);
         getNewBugPriorityOptions().get(1).click();
         getNewBugSubmitButton().click();
-        WebElement message = driver.findElement(By.className("el-message__content"));
-        while (message.getText() == null || message.getText().equals("")) {
-            Thread.sleep(500);
-        }
-        Assertions.assertEquals("请完整填写所需内容", message.getText());
+        validateMessageBox("请完整填写所需内容");
     }
 
     /**
@@ -287,11 +279,7 @@ public class BugManagement extends BaseInfo {
         getNewBugPriorityOptions().get(1).click();
         getNewBugDescriptionInput().sendKeys("功能测试缺陷描述内容");
         getNewBugSubmitButton().click();
-        WebElement message = driver.findElement(By.className("el-message__content"));
-        while (message.getText() == null || message.getText().equals("")) {
-            Thread.sleep(500);
-        }
-        Assertions.assertEquals("新增缺陷成功", message.getText());
+        validateMessageBox("新增缺陷成功");
     }
 
 
