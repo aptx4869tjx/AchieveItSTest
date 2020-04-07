@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -42,8 +43,22 @@ public class BaseInfo {
         return driver.findElement(By.className("el-button--text"));
     }
 
-    public static void setUp(String projectIdTest,String itemName) throws InterruptedException {
-        //Chrome
+    //验证弹出窗口的内容
+    public void validateMessageBox(String expectMessage) throws InterruptedException {
+        WebElement message = driver.findElement(By.className("el-message__content"));
+        while (message.getText() == null || message.getText().equals("")) {
+            Thread.sleep(500);
+        }
+        Assertions.assertEquals(expectMessage, message.getText());
+    }
+
+    public static void setUp(String projectIdTest, String itemName) throws InterruptedException {
+        setUp(projectIdTest, itemName, "zhangsan", "123456");
+    }
+
+
+
+    public static void setUp(String projectIdTest, String itemName, String usernameInput, String passwordInput) throws InterruptedException {
         System.setProperty("webdriver.chrome.driver", chromeDriverPath);
         driver = new ChromeDriver();
         //Firefox
@@ -58,11 +73,11 @@ public class BaseInfo {
             WebElement password = driver.findElement(By.name("password"));
             //清除用户名的输入框
             username.clear();
-            username.sendKeys("wangwu");
+            username.sendKeys(usernameInput);
 
             //清除密码输入框
             password.clear();
-            password.sendKeys("123456");
+            password.sendKeys(passwordInput);
 
             //登录按钮点击
             driver.findElement(By.cssSelector(".el-button")).click();

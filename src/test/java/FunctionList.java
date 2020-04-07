@@ -58,14 +58,37 @@ public class FunctionList extends BaseInfo{
             Thread.sleep(3000);
             WebElement uploadFunctionListButton = getUploadFunctionListButton();
             uploadFunctionListButton.click();
-            WebElement message = driver.findElement(By.className("el-message__content"));
-            while (message.getText() == null || message.getText().equals("")) {
-                Thread.sleep(500);
-            }
-//            Thread.sleep(3000);
-            Assertions.assertEquals("成功上传", driver.findElement(By.className("el-message__content")).getText());
+            validateMessageBox("成功上传");
+//            WebElement message = driver.findElement(By.className("el-message__content"));
+//            while (message.getText() == null || message.getText().equals("")) {
+//                Thread.sleep(500);
+//            }
+//            Assertions.assertEquals("成功上传", driver.findElement(By.className("el-message__content")).getText());
         }
     }
+
+    @Order(2)
+    @Test
+    void uploadExcelTest_2() throws InterruptedException {
+        if (flag) {
+            Thread.sleep(5000);
+        }
+        String uploadFilePath = "src/main/resources/不符合格式的功能列表.xlsx";
+        File excelUpload = new File(uploadFilePath);
+        if (excelUpload.exists()) {
+            System.out.println(excelUpload.exists());
+            Thread.sleep(1000);
+            WebElement excelUploadInput = getExcelUploadInput();
+            System.out.println(excelUpload.getAbsolutePath());
+            excelUploadInput.sendKeys(excelUpload.getAbsolutePath());
+            Thread.sleep(3000);
+            WebElement uploadFunctionListButton = getUploadFunctionListButton();
+            uploadFunctionListButton.click();
+            validateMessageBox("上传失败 :上传文件有问题");
+        }
+    }
+
+
 
     /**
      * 测试下载功能列表的Excel文件
@@ -75,7 +98,7 @@ public class FunctionList extends BaseInfo{
      * @author 田家旭
      * @date 2020/4/2 8:10 下午
      **/
-    @Order(2)
+    @Order(3)
     @Test
     void downloadExcelTest() throws InterruptedException {
         if (flag) {
@@ -83,12 +106,12 @@ public class FunctionList extends BaseInfo{
         }
         WebElement downloadFunctionListButton = getDownloadFunctionListButton();
         downloadFunctionListButton.click();
-//        Thread.sleep(1000);
-        WebElement message = driver.findElement(By.className("el-message__content"));
-        while (message.getText() == null || message.getText().equals("")) {
-            Thread.sleep(500);
-        }
-        Assertions.assertEquals("下载成功", message.getText());
+        validateMessageBox("下载成功");
+//        WebElement message = driver.findElement(By.className("el-message__content"));
+//        while (message.getText() == null || message.getText().equals("")) {
+//            Thread.sleep(500);
+//        }
+//        Assertions.assertEquals("下载成功", message.getText());
     }
 
 

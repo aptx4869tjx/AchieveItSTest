@@ -77,7 +77,8 @@ public class RiskManagement extends BaseInfo {
         getRiskStrategyInput().sendKeys("功能测试应对策略");
         getRiskDescriptionInput().sendKeys("功能测试风险描述");
         getSubmitButton().click();
-        Assertions.assertEquals("风险新增成功", getMessageBoxContent());
+        validateMessageBox("风险新增成功");
+        //Assertions.assertEquals("风险新增成功", getMessageBoxContent());
 
     }
 
