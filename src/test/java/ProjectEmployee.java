@@ -188,6 +188,9 @@ public class ProjectEmployee extends BaseInfo {
         Thread.sleep(1000);
         getSetPermissionsSubmitButton().click();
         validateMessageBox("成功");
+
+
+
         //删除
         Thread.sleep(5000);
         getDeleteEmployeeButton().get(0).click();
@@ -195,6 +198,28 @@ public class ProjectEmployee extends BaseInfo {
         //确定删除按钮
         driver.findElement(By.cssSelector("body > div.el-message-box__wrapper > div > div.el-message-box__btns > button.el-button.el-button--default.el-button--small.el-button--primary")).click();
         validateMessageBox("删除成功");
+    }
+
+    /**
+     * 测试使用不完整的员工信息添加员工
+     *
+     * @param
+     * @return void
+     * @author 田家旭
+     * @date 2020/4/7 9:07 下午
+     **/
+    @Order(6)
+    @Test
+    void addEmployeeTest_2() throws InterruptedException {
+        driver.navigate().refresh();
+        Thread.sleep(5000);
+        String employeeId = "100040";
+        getOpenAddEmployeeDialogButton().click();
+        Thread.sleep(1000);
+        WebElement addEmployeeIdInput = getAddEmployeeIdInput();
+        addEmployeeIdInput.sendKeys(employeeId);
+        getAddEmployeeSubmitButton().click();
+        validateMessageBox("请完整填写所需字段");
     }
 
 

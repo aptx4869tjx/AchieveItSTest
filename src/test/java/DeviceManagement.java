@@ -22,7 +22,7 @@ public class DeviceManagement extends BaseInfo {
     @AfterAll
     public static void tearDown() throws InterruptedException {
         Thread.sleep(2000);
-        driver.quit();
+//        driver.quit();
     }
 
     /**
@@ -135,7 +135,61 @@ public class DeviceManagement extends BaseInfo {
         getDeviceSearchButton().click();
         Thread.sleep(5000);
         WebElement element = driver.findElement(By.className("el-table__empty-text"));
-        Assertions.assertEquals("暂无数据",element.getText());
+        Assertions.assertEquals("暂无数据", element.getText());
+    }
+
+    /**
+     * 测试添加新的设备，更改设备状态，归还设备
+     *
+     * @param
+     * @return void
+     * @author 田家旭
+     * @date 2020/4/7 9:05 下午
+     **/
+    @Order(5)
+    @Test
+    void addDeviceTest_1() throws InterruptedException {
+        driver.navigate().refresh();
+        Thread.sleep(5000);
+        //添加设备
+        getOpenAddDeviceDialogButton().click();
+        String deviceType = "功能测试电脑";
+        getAddDeviceTypeInput().sendKeys(deviceType);
+        getAddDeviceUsageTimeLimitInput().clear();
+        getAddDeviceUsageTimeLimitInput().sendKeys("2020-10-01");
+        getAddDeviceSubmitButton().click();
+        validateMessageBox("成功");
+
+        //更新设备状态
+        Thread.sleep(5000);
+        getDeviceTypeSearchInput().sendKeys(deviceType);
+        getDeviceSearchButton().click();
+        Thread.sleep(5000);
+        getDeviceChangeStatusButton().get(0).click();
+        validateMessageBox("成功");
+
+        //归还设备
+        Thread.sleep(5000);
+        getDeviceReturnButton().get(0).click();
+        validateMessageBox("成功");
+    }
+
+    /**
+     * 测试使用不完整的信息添加设备
+     *
+     * @param
+     * @return void
+     * @author 田家旭
+     * @date 2020/4/7 9:16 下午
+     **/
+    @Order(6)
+    @Test
+    void addDeviceTest_2() throws InterruptedException {
+        driver.navigate().refresh();
+        Thread.sleep(5000);
+        getOpenAddDeviceDialogButton().click();
+        getAddDeviceSubmitButton().click();
+        validateMessageBox("请完整填写所需字段");
     }
 
 
