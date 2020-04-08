@@ -78,7 +78,6 @@ public class RiskManagement extends BaseInfo {
         getRiskDescriptionInput().sendKeys("功能测试风险描述");
         getSubmitButton().click();
         validateMessageBox("风险新增成功");
-        //Assertions.assertEquals("风险新增成功", getMessageBoxContent());
 
     }
 
@@ -238,6 +237,25 @@ public class RiskManagement extends BaseInfo {
         Thread.sleep(6000);
         WebElement emptyText = driver.findElement(By.className("el-table__empty-text"));
         Assertions.assertEquals("暂无数据", emptyText.getText());
+    }
+
+    @Order(6)
+    @Test
+    void updateRiskTest_1() throws InterruptedException {
+        driver.navigate().refresh();
+        Thread.sleep(5000);
+        String riskId="1315";
+        getRiskIdSearch().sendKeys(riskId);
+        getRiskSearchButton().click();
+        Thread.sleep(5000);
+        getOpenEditDialogButton().get(0).click();
+        Thread.sleep(3000);
+        getEditRiskTypeInput().clear();
+        getEditRiskTypeInput().sendKeys("功能测试修改的风险类型");
+        getEditRiskStrategyInput().clear();
+        getEditRiskStrategyInput().sendKeys("功能测试修改的风险策略");
+        getEditRiskSubmitButton().click();
+        validateMessageBox("更新成功");
     }
 
 
@@ -441,5 +459,37 @@ public class RiskManagement extends BaseInfo {
             Thread.sleep(200);
         }
         return message.getText();
+    }
+
+    //获取打开编辑风险对话框按钮
+    private List<WebElement> getOpenEditDialogButton() {
+        if (driver == null) {
+            return null;
+        }
+        return driver.findElements(By.name("openEditDialogButton"));
+    }
+
+    //确定提交编辑风险按钮
+    private WebElement getEditRiskSubmitButton() {
+        if (driver == null) {
+            return null;
+        }
+        return driver.findElement(By.name("editRiskSubmitButton"));
+    }
+
+    //新建风险中风险类型输入框
+    private WebElement getEditRiskTypeInput() {
+        if (driver == null) {
+            return null;
+        }
+        return driver.findElement(By.name("editRiskType"));
+    }
+
+    //获取新建风险中风险应对策略输入框
+    private WebElement getEditRiskStrategyInput() {
+        if (driver == null) {
+            return null;
+        }
+        return driver.findElement(By.name("editRiskStrategy"));
     }
 }

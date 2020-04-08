@@ -16,13 +16,14 @@ public class DeviceManagement extends BaseInfo {
 
     @BeforeAll
     public static void setUp() throws InterruptedException {
+        //使用设备管理员账号登录
         setUp(projectIdTest, "device", "wangwu", "123456");
     }
 
     @AfterAll
     public static void tearDown() throws InterruptedException {
         Thread.sleep(2000);
-//        driver.quit();
+        driver.quit();
     }
 
     /**
