@@ -5,8 +5,8 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 
 /**
- * 总计10个测试用例
- * 9个自动化测试用例 1个手工测试用例（翻页）
+ * 总计12个测试用例
+ * 9个自动化测试用例 3个手工测试用例（翻页；添加缺陷点击取消按钮；编辑缺陷点击取消按钮）
  *
  * @program: AchieveItSTest
  * @className: BugManagement

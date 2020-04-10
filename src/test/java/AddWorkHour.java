@@ -5,7 +5,7 @@ import org.openqa.selenium.interactions.Actions;
 
 /**
  * 总计2个测试用例
- * 1个自动化测试用例 1个手工测试用例（由于功能名称活动名称元素id在不同浏览器打开是变化的，同时采用xpath，cssSelector也无法定位。。。）
+ * 1个自动化测试用例 2个手工测试用例（由于功能名称活动名称元素id在不同浏览器打开是变化的，同时采用xpath，cssSelector也无法定位；添加工时信息点击取消按钮）
  * 添加工时信息测试
  *
  * @program: AchieveItSTest

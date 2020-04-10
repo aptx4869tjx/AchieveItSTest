@@ -12,8 +12,9 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 /**
- * 总计8个测试用例
- * 7个自动化测试用例 1个手工测试用例（翻页）
+ * 总计11个测试用例
+ * 8个自动化测试用例 3个手工测试用例（翻页；新建风险点击取消按钮；编辑风险点击取消按钮）
+ *
  * @program: AchieveItSTest
  * @className: RiskManagement
  * @author: 田家旭
@@ -34,8 +35,6 @@ public class RiskManagement extends BaseInfo {
         Thread.sleep(2000);
         driver.quit();
     }
-
-
 
 
     /**
@@ -195,10 +194,11 @@ public class RiskManagement extends BaseInfo {
 
     /**
      * 测试更新风险信息
-     * @author 田家旭
-     * @date 2020/4/10 10:00 上午
+     *
      * @param
      * @return void
+     * @author 田家旭
+     * @date 2020/4/10 10:00 上午
      **/
     @Order(6)
     @Test
@@ -230,7 +230,8 @@ public class RiskManagement extends BaseInfo {
     @Test
     @Order(7)
     void addRiskTest_1() throws InterruptedException {
-        flag = true;
+        driver.navigate().refresh();
+        Thread.sleep(5000);
         int statusIndex = 0;
         int riskLevelIndex = 1;
         int riskResponsibleIndex = 1;
@@ -264,6 +265,39 @@ public class RiskManagement extends BaseInfo {
         getSubmitButton().click();
         validateMessageBox("风险新增成功");
 
+    }
+
+    @Order(8)
+    @Test
+    void importRisk_1() throws InterruptedException {
+        driver.navigate().refresh();
+        Thread.sleep(5000);
+        int statusIndex = 0;
+        int riskLevelIndex = 1;
+        int riskResponsibleIndex = 1;
+        int riskAffectIndex = 2;
+        int[] riskRelatedIndexs = {1, 2, 3};
+        getOpenImportRiskButton().click();
+        Thread.sleep(5000);
+        getImportRiskButton().get(0).click();
+        Thread.sleep(3000);
+        getRiskStatusInput().click();
+        getNewRiskStatusOptions().get(statusIndex).click();
+        getRiskLevelInput().click();
+        getNewRiskLevelOptions().get(riskLevelIndex).click();
+        getRiskResponsibleInput().click();
+        getNewRiskResponsibleOptions().get(riskResponsibleIndex).click();
+        getRiskAffectInput().click();
+        getNewRiskAffectOptions().get(riskAffectIndex).click();
+        getRiskTrackFreqInput().sendKeys("15");
+        getRiskRelatedInput().sendKeys("");
+        List<WebElement> newRiskRelatedOptions = getNewRiskRelatedOptions();
+        for (int index : riskRelatedIndexs
+        ) {
+            newRiskRelatedOptions.get(index).click();
+        }
+        getSubmitButton().click();
+        validateMessageBox("风险新增成功");
     }
 
 
@@ -499,4 +533,21 @@ public class RiskManagement extends BaseInfo {
         }
         return driver.findElement(By.name("editRiskStrategy"));
     }
+
+    //获取导入打开已有风险对话框按钮
+    private WebElement getOpenImportRiskButton() {
+        if (driver == null) {
+            return null;
+        }
+        return driver.findElement(By.name("openImportRiskButton"));
+    }
+
+    //获取导入风险按钮
+    private List<WebElement> getImportRiskButton() {
+        if (driver == null) {
+            return null;
+        }
+        return driver.findElements(By.name("importRiskButton"));
+    }
+
 }

@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * 总计7个测试用例
- * 2个自动化测试用例 5个手工测试用例（信息不完整）
+ * 2个自动化测试用例 5个手工测试用例（在其余信息不完整的情况添加项目）
  *
  * @program: AchieveItSTest
  * @className: AddProject
