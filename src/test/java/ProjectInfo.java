@@ -5,12 +5,16 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 
 /**
+ * 总计3个测试用例
+ * 1个自动化测试用例 2个手动测试用例（由于测试不完整字段时，及时selenium清空了输入但依然存在原先的内容。。。所以采取手动测试）
+ *
  * @program: AchieveItSTest
  * @className: ProjectInfo
  * @author: 田家旭
  * @date: 2020-04-06 22:26
  **/
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class ProjectInfo extends BaseInfo {
     private static String projectIdTest = "12345678901";//测试的项目的projectId
 
@@ -22,7 +26,7 @@ public class ProjectInfo extends BaseInfo {
     @AfterAll
     public static void tearDown() throws InterruptedException {
         Thread.sleep(2000);
-//        driver.quit();
+        driver.quit();
     }
 
     /**

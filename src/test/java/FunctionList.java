@@ -12,6 +12,8 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 /**
+ * 总计3个测试用例
+ * 3个自动化测试用例 0个手工测试用例
  * 项目功能列表测试
  *
  * @program: AchieveItSTest

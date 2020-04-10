@@ -12,6 +12,8 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 /**
+ * 总计8个测试用例
+ * 7个自动化测试用例 1个手工测试用例（翻页）
  * @program: AchieveItSTest
  * @className: RiskManagement
  * @author: 田家旭
@@ -30,56 +32,10 @@ public class RiskManagement extends BaseInfo {
     @AfterAll
     public static void tearDown() throws InterruptedException {
         Thread.sleep(2000);
-//        driver.quit();
+        driver.quit();
     }
 
-    /**
-     * 新建风险测试
-     *
-     * @param
-     * @return void
-     * @author 田家旭
-     * @date 2020/4/4 6:44 下午
-     **/
-    @Test
-    @Order(3)
-    @Disabled
-    void addRiskTest_1() throws InterruptedException {
-        flag = true;
-        int statusIndex = 0;
-        int riskLevelIndex = 1;
-        int riskResponsibleIndex = 1;
-        int riskAffectIndex = 2;
-        int[] riskRelatedIndexs = {1, 2, 3};
-        WebElement newRiskButton = getOpenNewRiskButton();
-        newRiskButton.click();
-        Thread.sleep(2000);
-        WebElement riskTypeInput = getRiskTypeInput();
-        riskTypeInput.click();
-        riskTypeInput.clear();
-        riskTypeInput.sendKeys("技术风险");
-        getRiskStatusInput().click();
-        getNewRiskStatusOptions().get(statusIndex).click();
-        getRiskLevelInput().click();
-        getNewRiskLevelOptions().get(riskLevelIndex).click();
-        getRiskResponsibleInput().click();
-        getNewRiskResponsibleOptions().get(riskResponsibleIndex).click();
-        getRiskAffectInput().click();
-        getNewRiskAffectOptions().get(riskAffectIndex).click();
-        getRiskTrackFreqInput().sendKeys("5");
-        getRiskRelatedInput().sendKeys("");
-        List<WebElement> newRiskRelatedOptions = getNewRiskRelatedOptions();
-        for (int index : riskRelatedIndexs
-        ) {
-            newRiskRelatedOptions.get(index).click();
-        }
-        getRiskReactInput().sendKeys("功能测试风险应对");
-        getRiskStrategyInput().sendKeys("功能测试应对策略");
-        getRiskDescriptionInput().sendKeys("功能测试风险描述");
-        getSubmitButton().click();
-        validateMessageBox("风险新增成功");
 
-    }
 
 
     /**
@@ -103,8 +59,6 @@ public class RiskManagement extends BaseInfo {
         getRiskSearchButton().click();
         //等待查询结果
         Thread.sleep(6000);
-        //TODO
-        //查询结果的table的class可能会变？？
         List<WebElement> idSearchResults = driver.findElements(By.className("el-table_1_column_2"));
         for (WebElement e : idSearchResults
         ) {
@@ -239,12 +193,19 @@ public class RiskManagement extends BaseInfo {
         Assertions.assertEquals("暂无数据", emptyText.getText());
     }
 
+    /**
+     * 测试更新风险信息
+     * @author 田家旭
+     * @date 2020/4/10 10:00 上午
+     * @param
+     * @return void
+     **/
     @Order(6)
     @Test
     void updateRiskTest_1() throws InterruptedException {
         driver.navigate().refresh();
         Thread.sleep(5000);
-        String riskId="1315";
+        String riskId = "1315";
         getRiskIdSearch().sendKeys(riskId);
         getRiskSearchButton().click();
         Thread.sleep(5000);
@@ -258,6 +219,52 @@ public class RiskManagement extends BaseInfo {
         validateMessageBox("更新成功");
     }
 
+    /**
+     * 新建风险测试
+     *
+     * @param
+     * @return void
+     * @author 田家旭
+     * @date 2020/4/4 6:44 下午
+     **/
+    @Test
+    @Order(7)
+    void addRiskTest_1() throws InterruptedException {
+        flag = true;
+        int statusIndex = 0;
+        int riskLevelIndex = 1;
+        int riskResponsibleIndex = 1;
+        int riskAffectIndex = 2;
+        int[] riskRelatedIndexs = {1, 2, 3};
+        WebElement newRiskButton = getOpenNewRiskButton();
+        newRiskButton.click();
+        Thread.sleep(2000);
+        WebElement riskTypeInput = getRiskTypeInput();
+        riskTypeInput.click();
+        riskTypeInput.clear();
+        riskTypeInput.sendKeys("技术风险");
+        getRiskStatusInput().click();
+        getNewRiskStatusOptions().get(statusIndex).click();
+        getRiskLevelInput().click();
+        getNewRiskLevelOptions().get(riskLevelIndex).click();
+        getRiskResponsibleInput().click();
+        getNewRiskResponsibleOptions().get(riskResponsibleIndex).click();
+        getRiskAffectInput().click();
+        getNewRiskAffectOptions().get(riskAffectIndex).click();
+        getRiskTrackFreqInput().sendKeys("5");
+        getRiskRelatedInput().sendKeys("");
+        List<WebElement> newRiskRelatedOptions = getNewRiskRelatedOptions();
+        for (int index : riskRelatedIndexs
+        ) {
+            newRiskRelatedOptions.get(index).click();
+        }
+        getRiskReactInput().sendKeys("功能测试风险应对");
+        getRiskStrategyInput().sendKeys("功能测试应对策略");
+        getRiskDescriptionInput().sendKeys("功能测试风险描述");
+        getSubmitButton().click();
+        validateMessageBox("风险新增成功");
+
+    }
 
 
     //新建风险按钮

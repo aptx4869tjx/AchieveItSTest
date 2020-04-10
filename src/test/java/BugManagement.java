@@ -5,6 +5,9 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 
 /**
+ * 总计10个测试用例
+ * 9个自动化测试用例 1个手工测试用例（翻页）
+ *
  * @program: AchieveItSTest
  * @className: BugManagement
  * @author: 田家旭

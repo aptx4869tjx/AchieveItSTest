@@ -5,12 +5,14 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 
 /**
+ * 总计7个测试用例
+ * 6个自动化测试用例 1个手工测试用例（测试翻页）
  * @program: AchieveItSTest
  * @className: ProjectEmployee
  * @author: 田家旭
  * @date: 2020-04-07 15:58
  **/
-
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class ProjectEmployee extends BaseInfo {
     private static String projectIdTest = "12345678901";//测试的项目的projectId
 

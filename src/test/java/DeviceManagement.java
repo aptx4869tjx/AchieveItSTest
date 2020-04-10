@@ -5,12 +5,15 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 
 /**
+ * 总计7个测试用例
+ * 6个自动化测试用例 1个手工测试用例（翻页）
+ *
  * @program: AchieveItSTest
  * @className: DeviceManagement
  * @author: 田家旭
  * @date: 2020-04-07 19:20
  **/
-
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class DeviceManagement extends BaseInfo {
     private static String projectIdTest = "12345678901";//测试的项目的projectId
 

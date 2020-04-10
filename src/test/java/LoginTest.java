@@ -9,6 +9,9 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 /**
+ * 总计5个测试用例
+ * 5个自动化测试用例 0个手工测试用例
+ *
  * @program: AchieveItSTest
  * @className: LoginTest
  * @author: 田家旭
@@ -107,6 +110,7 @@ public class LoginTest {
 
     /**
      * 用户名存在，密码为空
+     *
      * @param
      * @return void
      * @author 田家旭
@@ -169,12 +173,14 @@ public class LoginTest {
         //比对错误信息,开发过程可能更改
         Assertions.assertEquals("用户名或密码错误", message.getText());
     }
+
     /**
      * 用户名为空
-     * @author 田家旭
-     * @date 2020/3/26 10:10 下午
+     *
      * @param
      * @return void
+     * @author 田家旭
+     * @date 2020/3/26 10:10 下午
      **/
     @Order(5)
     @Test
