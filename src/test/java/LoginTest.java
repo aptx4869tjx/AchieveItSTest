@@ -69,7 +69,6 @@ public class LoginTest {
         //登录按钮点击
         driver.findElement(By.cssSelector(".el-button")).click();
         //退出按钮点击,可能需要修改
-        //TODO
         driver.findElement(By.name("exit")).click();
     }
 

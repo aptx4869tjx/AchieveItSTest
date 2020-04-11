@@ -72,7 +72,6 @@ public class AddWorkHour extends BaseInfo {
 //        getAddWorkHourEndTimeInput().clear();
 //        getAddWorkHourEndTimeInput().sendKeys("07:00:00");
 //        driver.findElement(By.className("el-dialog__title")).click();
-//        //TODO
 //        //功能名称活动名称无法定位。。。
 //
 //        getAddWorkHourFunctionInput().click();
