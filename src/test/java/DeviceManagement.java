@@ -5,8 +5,8 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 
 /**
- * 总计7个测试用例
- * 6个自动化测试用例 1个手工测试用例（翻页；添加设备点击取消按钮）
+ * 总计8个测试用例
+ * 6个自动化测试用例 2个手工测试用例（1.翻页；2.添加设备点击取消按钮）
  *
  * @program: AchieveItSTest
  * @className: DeviceManagement

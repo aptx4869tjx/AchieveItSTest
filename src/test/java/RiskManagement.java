@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * 总计11个测试用例
- * 8个自动化测试用例 3个手工测试用例（翻页；新建风险点击取消按钮；编辑风险点击取消按钮）
+ * 8个自动化测试用例 3个手工测试用例（1.翻页；2.新建风险点击取消按钮；3.编辑风险点击取消按钮）
  *
  * @program: AchieveItSTest
  * @className: RiskManagement

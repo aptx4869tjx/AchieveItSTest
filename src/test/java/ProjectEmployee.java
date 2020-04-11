@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * 总计8个测试用例
- * 6个自动化测试用例 2个手工测试用例（测试翻页；添加人员点击取消按钮）
+ * 6个自动化测试用例 2个手工测试用例（1.测试翻页；2.添加人员点击取消按钮）
  * @program: AchieveItSTest
  * @className: ProjectEmployee
  * @author: 田家旭
