@@ -43,8 +43,10 @@ public class ArchiveManagement extends BaseInfo {
     @Test
     void updateFileTest_1() throws InterruptedException {
         Thread.sleep(3000);
-        getUpdateFileButton().get(0).click();
-        validateMessageBox("提交成功");
+        if (getUpdateFileButton() != null && getUpdateFileButton().size() != 0) {
+            getUpdateFileButton().get(0).click();
+            validateMessageBox("提交成功");
+        }
     }
 
 
