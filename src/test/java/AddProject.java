@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
  **/
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class AddProject extends BaseInfo {
-    private boolean flag = false;
+    private static boolean flag = false;
 
     @BeforeAll
     static void setUp() throws InterruptedException {

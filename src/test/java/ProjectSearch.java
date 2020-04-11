@@ -107,7 +107,7 @@ public class ProjectSearch {
     public void findByProjectIdTest_2() throws InterruptedException {
         if (flag) {
             driver.navigate().refresh();
-            Thread.sleep(2000);
+            Thread.sleep(5000);
 
         }
         String projectId = "[][=+";
@@ -136,7 +136,7 @@ public class ProjectSearch {
     public void findByProjectNameTest_1() throws InterruptedException {
         if (flag) {
             driver.navigate().refresh();
-            Thread.sleep(2000);
+            Thread.sleep(5000);
 
         }
         String projectName = "时间测试";
@@ -175,7 +175,7 @@ public class ProjectSearch {
     public void findByProjectNameTest_2() throws InterruptedException {
         if (flag) {
             driver.navigate().refresh();
-            Thread.sleep(2000);
+            Thread.sleep(5000);
 
         }
         String projectName = "]=/?";
@@ -205,7 +205,7 @@ public class ProjectSearch {
     public void findByProjectStatusTest_1() throws InterruptedException {
         if (flag) {
             driver.navigate().refresh();
-            Thread.sleep(2000);
+            Thread.sleep(5000);
 
         }
         WebElement projectStatusInput = getProjectStatusInput();
@@ -246,7 +246,7 @@ public class ProjectSearch {
     public void findProjectByConditions() throws InterruptedException {
         if (flag) {
             driver.navigate().refresh();
-            Thread.sleep(2000);
+            Thread.sleep(5000);
 
         }
         WebElement projectIdInput = getProjectIdInput();

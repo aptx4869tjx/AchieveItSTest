@@ -16,7 +16,7 @@ import org.openqa.selenium.interactions.Actions;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class AddWorkHour extends BaseInfo {
     private static String projectIdTest = "12345678901";//测试的项目的projectId
-    private boolean flag = false;
+    private static boolean flag = false;
 
     @BeforeAll
     public static void setUp() throws InterruptedException {
@@ -56,41 +56,41 @@ public class AddWorkHour extends BaseInfo {
      * @author 田家旭
      * @date 2020/4/8 9:39 下午
      **/
-    @Order(2)
-    @Test
-    @Disabled
-    void addWorkHourTest_2() throws InterruptedException {
-        if (flag) {
-            driver.navigate().refresh();
-            Thread.sleep(5000);
-        }
-        getOpenAddWorkHourDialogButton().click();
-        Thread.sleep(1000);
-        getAddWorkHourStartTimeInput().clear();
-        getAddWorkHourStartTimeInput().sendKeys("06:00:00");
-        driver.findElement(By.className("el-dialog__title")).click();
-        getAddWorkHourEndTimeInput().clear();
-        getAddWorkHourEndTimeInput().sendKeys("07:00:00");
-        driver.findElement(By.className("el-dialog__title")).click();
-        //TODO
-        //功能名称活动名称无法定位。。。
-
-        getAddWorkHourFunctionInput().click();
-
-        WebElement f = driver.findElement(By.xpath("/html/body/div[3]/div[1]/div[1]/div[1]/ul/li[1]"));
-        WebElement f_1 = driver.findElement(By.xpath("/html/body/div[3]/div[1]/div[2]/div[1]/ul/li"));
-        f.click();
-        f_1.click();
-//        WebElement mainelement = driver.findElements(By.className("el-cascader-node")).get(0);
-//        Actions action = new Actions(driver);
-//        action.moveToElement(mainelement).perform();
-//        driver.findElement(By.cssSelector("#cascader-menu-1897-1-0")).click();
-//        WebElement element = driver.findElements(By.className("el-cascader-node")).get(0);
-//        action.moveToElement(element).perform();
-//        driver.findElement(By.className("el-cascader-node__label")).click();
-//        getAddWorkHourSubmitButton().click();
-//        validateMessageBox("成功");
-    }
+//    @Order(2)
+//    @Test
+//    @Disabled
+//    void addWorkHourTest_2() throws InterruptedException {
+//        if (flag) {
+//            driver.navigate().refresh();
+//            Thread.sleep(5000);
+//        }
+//        getOpenAddWorkHourDialogButton().click();
+//        Thread.sleep(1000);
+//        getAddWorkHourStartTimeInput().clear();
+//        getAddWorkHourStartTimeInput().sendKeys("06:00:00");
+//        driver.findElement(By.className("el-dialog__title")).click();
+//        getAddWorkHourEndTimeInput().clear();
+//        getAddWorkHourEndTimeInput().sendKeys("07:00:00");
+//        driver.findElement(By.className("el-dialog__title")).click();
+//        //TODO
+//        //功能名称活动名称无法定位。。。
+//
+//        getAddWorkHourFunctionInput().click();
+//
+//        WebElement f = driver.findElement(By.xpath("/html/body/div[3]/div[1]/div[1]/div[1]/ul/li[1]"));
+//        WebElement f_1 = driver.findElement(By.xpath("/html/body/div[3]/div[1]/div[2]/div[1]/ul/li"));
+//        f.click();
+//        f_1.click();
+////        WebElement mainelement = driver.findElements(By.className("el-cascader-node")).get(0);
+////        Actions action = new Actions(driver);
+////        action.moveToElement(mainelement).perform();
+////        driver.findElement(By.cssSelector("#cascader-menu-1897-1-0")).click();
+////        WebElement element = driver.findElements(By.className("el-cascader-node")).get(0);
+////        action.moveToElement(element).perform();
+////        driver.findElement(By.className("el-cascader-node__label")).click();
+////        getAddWorkHourSubmitButton().click();
+////        validateMessageBox("成功");
+//    }
 
     //获取打开添加工时信息按钮
     private WebElement getOpenAddWorkHourDialogButton() {

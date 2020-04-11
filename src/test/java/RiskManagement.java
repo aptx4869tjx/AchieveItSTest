@@ -236,7 +236,7 @@ public class RiskManagement extends BaseInfo {
         int riskLevelIndex = 1;
         int riskResponsibleIndex = 1;
         int riskAffectIndex = 2;
-        int[] riskRelatedIndexs = {1, 2, 3};
+        int[] riskRelatedIndexs = {1};
         WebElement newRiskButton = getOpenNewRiskButton();
         newRiskButton.click();
         Thread.sleep(2000);
@@ -276,7 +276,7 @@ public class RiskManagement extends BaseInfo {
         int riskLevelIndex = 1;
         int riskResponsibleIndex = 1;
         int riskAffectIndex = 2;
-        int[] riskRelatedIndexs = {1, 2, 3};
+        int[] riskRelatedIndexs = {1};
         getOpenImportRiskButton().click();
         Thread.sleep(5000);
         getImportRiskButton().get(0).click();
